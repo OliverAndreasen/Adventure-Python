@@ -36,6 +36,8 @@ class Game(Room):
             parser.current_room = self.current_room
             player.current_room = self.current_room
 
+            parser.welcome_text()
+
             user_input = input("write your command").lower()
             parser.user_input = user_input
             command = parser.command()
