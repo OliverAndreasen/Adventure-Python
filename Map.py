@@ -2,7 +2,7 @@ from Room import Room
 from Item import Item
 
 
-class Map(Room):
+class Map():
     def __init__(self):
         self.room1 = Room("Room1", "Jeg er rum 1")
         self.room2 = Room("Room2", "Jeg er rum 2")

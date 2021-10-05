@@ -15,9 +15,9 @@ class Player():
         self.current_room.room_items.append(item_name)
 
     def check_player_item(self, item_name):
-        for item_name in self.player_items:
+        for find_item in self.player_items:
             i = 0
-            if item_name == self.player_items[i]:
+            if item_name == find_item:
                 return True
             elif i == len(self.player_items):
                 return False

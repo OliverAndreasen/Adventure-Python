@@ -4,7 +4,7 @@ from Parser import Parser
 from Player import Player
 
 
-class Game(Room):
+class Game:
 
     def __init__(self):
         self.kort = Map()
@@ -18,9 +18,8 @@ class Game(Room):
 
     def get_item(self, input_name):
         i = 0
-        for item_name in self.kort.all_items:
-            find_item = str(self.kort.all_items[i].item_name)
-            if str(input_name) == find_item:
+        for find_item in self.kort.all_items:
+            if input_name == find_item.item_name:
                 item = self.kort.all_items[i]
                 return item
             elif i == len(self.kort.all_items):
@@ -69,12 +68,12 @@ class Game(Room):
                         player.drop(item_name)
                         print("you dropped the " + item_name)
                     else:
-                        if not item_name == False:
+                        if item_name:
                             print(str(item_name) + " does not exist in your inventory")
                         else:
                             print("to drop you have to write drop 'item name'")
                 case "inv":
-                    if (player.player_items):
+                    if player.player_items:
                         print("current inventory weight: " + str(player.player_weight))
                         print("max inventory weight: " + str(player.player_max_weight))
                         print("Inventory:")
@@ -83,7 +82,7 @@ class Game(Room):
                         print("you have no items in your inventory")
 
                 case "look":
-                    if (self.current_room.room_items):
+                    if self.current_room.room_items:
                         print("Items in this room:")
                         print(self.current_room.room_items)
                     else:
