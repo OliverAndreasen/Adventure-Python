@@ -60,16 +60,16 @@ class Game(Room):
                     else:
                         print("no such item to take")
                 case "drop":
-                                if player.check_player_item(item_name):
-                                    item = self.get_item(item_name)
-                                    player.player_weight = player.player_weight - item.item_weight
-                                    player.drop(item_name)
-                                    print("you dropped the " + item_name)
-                                else:
-                                     if not item_name == None:
-                                        print(str(item_name) + " does not exist in your inventory")
-                                     else:
-                                         print("to drop you have to write the item name")
+                    if player.check_player_item(item_name):
+                        item = self.get_item(item_name)
+                        player.player_weight = player.player_weight - item.item_weight
+                        player.drop(item_name)
+                        print("you dropped the " + item_name)
+                    else:
+                        if not item_name == None:
+                            print(str(item_name) + " does not exist in your inventory")
+                        else:
+                            print("to drop you have to write the item name")
                 case "inv":
                     if (player.player_weight == 0):
                         print("you have no items in your inventory")
@@ -78,10 +78,10 @@ class Game(Room):
                         print("max inventory weight: " + str(player.player_max_weight))
                         print("Inventory:")
                         print(player.player_items)
-                    
+
                 case "look":
                     print("Items in this room:")
                     print(self.current_room.room_items)
-                    
+
                 case _:
                     print("wrong command try again")

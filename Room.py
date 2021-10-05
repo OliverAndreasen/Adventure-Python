@@ -18,7 +18,7 @@ class Room:
         self.room_south = room
 
     def set_room_west(self, room):
-         self.room_west = room
+        self.room_west = room
 
     def check_room_item(self, item_name):
 
@@ -26,6 +26,3 @@ class Room:
             return item_name
         else:
             return None
-
-
-

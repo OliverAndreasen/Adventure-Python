@@ -36,10 +36,10 @@ class Parser():
     def set_direction(self):
         direction = self.direction_validation()
         if direction == "north":
-                return self.current_room.room_north
+            return self.current_room.room_north
         if direction == "east":
-                return self.current_room.room_east
+            return self.current_room.room_east
         if direction == "south":
-                return self.current_room.room_south
+            return self.current_room.room_south
         if direction == "west":
-                return self.current_room.room_west
+            return self.current_room.room_west
