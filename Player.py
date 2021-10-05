@@ -10,11 +10,9 @@ class Player():
         self.player_items.append(item_name)
         self.current_room.room_items.remove(item_name)
 
-
     def drop(self, item_name):
-            self.player_items.remove(item_name)
-            self.current_room.room_items.append(item_name)
-
+        self.player_items.remove(item_name)
+        self.current_room.room_items.append(item_name)
 
     def check_player_item(self, item_name):
         for item_name in self.player_items:
@@ -26,10 +24,10 @@ class Player():
             else:
                 i = i + 1
                 print(i)
+
     def check_player_weight(self, item_weight):
-        if self.player_weight+item_weight <= self.player_max_weight:
+        if self.player_weight + item_weight <= self.player_max_weight:
             print(self.player_weight)
             return True
         else:
             return False
-

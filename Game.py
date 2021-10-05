@@ -40,6 +40,7 @@ class Game(Room):
             parser.user_input = user_input
             command = parser.command()
             item_name = parser.attribute()
+
             match command:
                 case "go":
                     if isinstance(parser.set_direction(), Room):
@@ -65,7 +66,6 @@ class Game(Room):
                                 if player.check_player_item(item_name):
                                     item = self.get_item(item_name)
                                     player.player_weight = player.player_weight - item.item_weight
-                                    print(player.player_weight)
                                     player.drop(item_name)
                                     print(self.current_room.room_items)
                                     print(player.player_items)

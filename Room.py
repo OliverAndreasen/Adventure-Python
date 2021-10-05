@@ -20,12 +20,6 @@ class Room:
     def set_room_west(self, room):
          self.room_west = room
 
-    def get_room_name(self):
-        return self.name
-
-    def set_room_item(self,item_name):
-        self.room_items.append(item_name)
-
     def check_room_item(self, item_name):
 
         if item_name in self.room_items:

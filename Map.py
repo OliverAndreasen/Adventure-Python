@@ -1,8 +1,6 @@
 from Room import Room
 from Item import Item
 
-
-
 class Map(Room):
     def __init__(self):
         self.room1 = Room("Room1", "Jeg er rum 1")
