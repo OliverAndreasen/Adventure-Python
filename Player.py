@@ -23,11 +23,9 @@ class Player():
                 return False
             else:
                 i = i + 1
-                print(i)
 
     def check_player_weight(self, item_weight):
         if self.player_weight + item_weight <= self.player_max_weight:
-            print(self.player_weight)
             return True
         else:
             return False

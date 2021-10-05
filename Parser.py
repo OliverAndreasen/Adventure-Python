@@ -30,6 +30,7 @@ class Parser():
             result = self.user_input.split(None, 1)
             return result[1]
         except:
+            return False
             print("not a valid input try again")
 
     def set_direction(self):

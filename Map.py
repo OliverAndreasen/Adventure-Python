@@ -53,9 +53,9 @@ class Map(Room):
 
 
         #Items
-        shovel = Item("shovel", "Rusty shovel", 10)
-        flashlight = Item("flashlight", "New flashlight", 1)
-        soda = Item("soda", "Expired soda", 1)
+        shovel = Item("shovel", "Rusty shovel", 3)
+        flashlight = Item("flashlight", "New flashlight", 2)
+        soda = Item("soda", "Expired soda", 5)
 
         #Room 1 Items
         self.room1.room_items.append("shovel")

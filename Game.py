@@ -36,7 +36,7 @@ class Game(Room):
             parser.current_room = self.current_room
             player.current_room = self.current_room
 
-            user_input = input("write your command")
+            user_input = input("write your command").lower()
             parser.user_input = user_input
             command = parser.command()
             item_name = parser.attribute()
@@ -54,10 +54,7 @@ class Game(Room):
                         if player.check_player_weight(item.item_weight):
                             player.take(item_name)
                             player.player_weight = player.player_weight + item.item_weight
-                            print(player.player_weight)
-
-                            print(self.current_room.room_items)
-                            print(player.player_items)
+                            print("you took the " + item_name)
                         else:
                             print("you cant carry any more items")
                     else:
@@ -67,12 +64,24 @@ class Game(Room):
                                     item = self.get_item(item_name)
                                     player.player_weight = player.player_weight - item.item_weight
                                     player.drop(item_name)
-                                    print(self.current_room.room_items)
-                                    print(player.player_items)
+                                    print("you dropped the " + item_name)
                                 else:
                                      if not item_name == None:
                                         print(str(item_name) + " does not exist in your inventory")
                                      else:
                                          print("to drop you have to write the item name")
+                case "inv":
+                    if (player.player_weight == 0):
+                        print("you have no items in your inventory")
+                    else:
+                        print("current inventory weight: " + str(player.player_weight))
+                        print("max inventory weight: " + str(player.player_max_weight))
+                        print("Inventory:")
+                        print(player.player_items)
+                    
+                case "look":
+                    print("Items in this room:")
+                    print(self.current_room.room_items)
+                    
                 case _:
                     print("wrong command try again")
