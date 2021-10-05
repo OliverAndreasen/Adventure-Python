@@ -21,10 +21,10 @@ class Game(Room):
         for item_name in self.kort.all_items:
             find_item = str(self.kort.all_items[i].item_name)
             if str(input_name) == find_item:
-                item = self.kort.all_items[i]
+                item = self.kort.all_items[0]
                 return item
             elif i == len(self.kort.all_items):
-                return "item blev ikke fundet"
+                return "item not found"
             else:
                 i = i + 1
 
@@ -88,6 +88,6 @@ class Game(Room):
                         print(self.current_room.room_items)
                     else:
                         print("no items in this room")
-                        
+
                 case _:
                     print("wrong command try again")
