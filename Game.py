@@ -89,4 +89,5 @@ class Game:
                         print("no items in this room")
 
                 case _:
-                    print("wrong command try again")
+                    if command:
+                        print("wrong command try again")

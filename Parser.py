@@ -1,8 +1,12 @@
-class Parser():
+class Parser:
 
-    def set_user_input(self, input):
-        input = self.user_input = input
-        return input
+    def __init__(self):
+        self.user_input = ""
+        self.current_room = ""
+
+    def set_user_input(self, user_input):
+        user_input = self.user_input = user_input
+        return user_input
 
     def set_current_room(self, current_room):
         self.current_room = current_room
@@ -22,8 +26,11 @@ class Parser():
             return "not a direction"
 
     def command(self):
-        result = self.user_input.split(None, 1)
-        return result[0]
+        try:
+            result = self.user_input.split(None, 1)
+            return result[0]
+        except IndexError:
+            print("write a command")
 
     def attribute(self):
         try:
@@ -43,7 +50,6 @@ class Parser():
         if direction == "west":
             return self.current_room.room_west
 
-
     def welcome_text(self):
         print("welcome to the game")
         print("to move between rooms type go followed by a direction")
@@ -52,7 +58,3 @@ class Parser():
         print("you can drop items by typing drop 'item name'")
         print("you can look for items in the room by typing 'look'")
         print("you can view your inventory by typing 'inv'")
-
-
-
-

@@ -2,7 +2,7 @@ from Room import Room
 from Item import Item
 
 
-class Map():
+class Map:
     def __init__(self):
         self.room1 = Room("Room1", "Jeg er rum 1")
         self.room2 = Room("Room2", "Jeg er rum 2")
@@ -58,7 +58,6 @@ class Map():
         sock = Item("sock", "Smelly sock", 1)
         sword = Item("sword", "Long sword", 5)
 
-
         # Room 1 items
         self.room1.room_items.append("shovel")
         self.room1.room_items.append("flashlight")
@@ -68,10 +67,5 @@ class Map():
         self.room7.room_items.append("sock")
         self.room7.room_items.append("sword")
 
-
-        #All items
-        self.all_items = [shovel,flashlight,soda,sock,sword]
-
-
-
-
+        # All items
+        self.all_items = [shovel, flashlight, soda, sock, sword]
