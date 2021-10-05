@@ -21,7 +21,7 @@ class Game(Room):
         for item_name in self.kort.all_items:
             find_item = str(self.kort.all_items[i].item_name)
             if str(input_name) == find_item:
-                item = self.kort.all_items[0]
+                item = self.kort.all_items[i]
                 return item
             elif i == len(self.kort.all_items):
                 return "item not found"
