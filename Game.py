@@ -66,22 +66,25 @@ class Game(Room):
                         player.drop(item_name)
                         print("you dropped the " + item_name)
                     else:
-                        if not item_name == None:
+                        if not item_name == False:
                             print(str(item_name) + " does not exist in your inventory")
                         else:
-                            print("to drop you have to write the item name")
+                            print("to drop you have to write drop 'item name'")
                 case "inv":
-                    if (player.player_weight == 0):
-                        print("you have no items in your inventory")
-                    else:
+                    if (player.player_items):
                         print("current inventory weight: " + str(player.player_weight))
                         print("max inventory weight: " + str(player.player_max_weight))
                         print("Inventory:")
                         print(player.player_items)
+                    else:
+                        print("you have no items in your inventory")
 
                 case "look":
-                    print("Items in this room:")
-                    print(self.current_room.room_items)
-
+                    if (self.current_room.room_items):
+                        print("Items in this room:")
+                        print(self.current_room.room_items)
+                    else:
+                        print("no items in this room")
+                        
                 case _:
                     print("wrong command try again")
