@@ -24,6 +24,20 @@ class Room:
 
     def check_room_item(self, name):
         if name in self.room_items:
+            return True
+        else:
+            return False
+
+    def get_room_item(self, name):
+        if name in self.room_items:
             return name
         else:
-            return None
+            return False
+
+    def get_room_enemey(self, enemy_name):
+        if enemy_name in self.room_enemies:
+            return enemy_name
+        else:
+            return False
+
+

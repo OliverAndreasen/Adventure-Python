@@ -2,6 +2,7 @@ from Map import Map
 from Room import Room
 from Parser import Parser
 from Player import Player
+from Food import Food
 
 
 class Game:
@@ -19,7 +20,7 @@ class Game:
     def get_item(self, input_name):
         i = 0
         for find_item in self.kort.all_items:
-            if input_name == find_item.item_name:
+            if input_name == find_item.name:
                 item = self.kort.all_items[i]
                 return item
             elif i == len(self.kort.all_items):
@@ -29,12 +30,12 @@ class Game:
 
     def get_enemy(self, enemy_name):
         i = 0
-        for find_item in self.kort.all_items:
-            if input_name == find_item.item_name:
-                item = self.kort.all_items[i]
-                return item
-            elif i == len(self.kort.all_items):
-                return "item not found"
+        for enemy_name in self.kort.all_enemies:
+            if enemy_name == enemy_name.enemy.name:
+                enemy = self.kort.all_enemies[i]
+                return enemy
+            elif i == len(self.kort.all_enemies):
+                return "enemy not found"
             else:
                 i = i + 1
 
@@ -45,6 +46,8 @@ class Game:
         parser.welcome_text()
         print("you are in room " + self.current_room.name)
 
+
+
         while True:
             parser.current_room = self.current_room
             player.current_room = self.current_room
@@ -53,6 +56,9 @@ class Game:
             parser.user_input = user_input
             command = parser.command()
             item_name = parser.attribute()
+
+
+
 
             match command:
                 case "go":
@@ -64,9 +70,9 @@ class Game:
                 case "take":
                     if self.current_room.check_room_item(item_name):
                         item = self.get_item(item_name)
-                        if player.check_player_weight(item.item_weight):
+                        if player.check_player_weight(item.weight):
                             player.take(item_name)
-                            player.player_weight = player.player_weight + item.item_weight
+                            player.player_weight = player.player_weight + item.weight
                             print("you took the " + item_name)
                         else:
                             print("you cant carry any more items")
@@ -75,7 +81,7 @@ class Game:
                 case "drop":
                     if player.check_player_item(item_name):
                         item = self.get_item(item_name)
-                        player.player_weight = player.player_weight - item.item_weight
+                        player.player_weight = player.player_weight - item.weight
                         player.drop(item_name)
                         print("you dropped the " + item_name)
                     else:
@@ -103,6 +109,18 @@ class Game:
                     item = self.get_item(item_name)
                     if player.check_player_item(item_name):
                         print(player.equip_weapon(item))
+
+                case "eat":
+                    item = self.get_item(item_name)
+                    print(player.eat(item))
+
+                case "attack":
+
+                    if(player.attack):
+                        damage = player.equipped_weapon.damage
+
+                    else:
+
 
                 case _:
                     if command:

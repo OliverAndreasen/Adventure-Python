@@ -1,6 +1,7 @@
-from Enemy import Enemy
-from Room import Room
 from Item import Item
+from Enemy import Enemy
+from Food import Food
+from Room import Room
 from Weapon import Weapon
 
 
@@ -63,6 +64,12 @@ class Map:
         sword = Weapon("sword", "Long sword", 5, 10)
         knife = Weapon("knife", "small knife", 1, 5)
 
+        # Food
+        apple = Food("apple", "red apple", 1, 20)
+        onion = Food("onion", "old onion", 1, 5)
+
+
+
         #Enemies
         goblin = Enemy("goblin", 100, knife)
 
@@ -74,9 +81,19 @@ class Map:
 
         # Room 1 enemies 
         self.room1.room_enemies.append("goblin")
+        
+        # Room 1 food
+        self.room1.room_items.append("apple")
+
+        # Room 2 food
+        self.room2.room_items.append("onion")
+
 
         # Room 7 items
         self.room7.room_items.append("sock")
 
         # All items
-        self.all_items = [shovel, flashlight, soda, sock, sword]
+        self.all_items = [shovel, flashlight, soda, sock, sword, apple, onion]
+
+        # All enemies
+        self.all_enemies = [goblin]
