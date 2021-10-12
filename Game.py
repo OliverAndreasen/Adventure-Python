@@ -27,6 +27,17 @@ class Game:
             else:
                 i = i + 1
 
+    def get_enemy(self, enemy_name):
+        i = 0
+        for find_item in self.kort.all_items:
+            if input_name == find_item.item_name:
+                item = self.kort.all_items[i]
+                return item
+            elif i == len(self.kort.all_items):
+                return "item not found"
+            else:
+                i = i + 1
+
     def run(self):
         parser = self.parser
         player = self.player
@@ -87,6 +98,11 @@ class Game:
                         print(self.current_room.room_items)
                     else:
                         print("no items in this room")
+
+                case "equip":
+                    item = self.get_item(item_name)
+                    if player.check_player_item(item_name):
+                        print(player.equip_weapon(item))
 
                 case _:
                     if command:

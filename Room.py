@@ -7,6 +7,8 @@ class Room:
         self.room_south = ""
         self.room_west = ""
         self.room_items = list()
+        self.room_enemies = list()
+
 
     def set_room_north(self, room):
         self.room_north = room
@@ -20,9 +22,8 @@ class Room:
     def set_room_west(self, room):
         self.room_west = room
 
-    def check_room_item(self, item_name):
-
-        if item_name in self.room_items:
-            return item_name
+    def check_room_item(self, name):
+        if name in self.room_items:
+            return name
         else:
             return None

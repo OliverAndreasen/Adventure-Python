@@ -1,6 +1,10 @@
+from Weapon import Weapon
+
+
 class Player:
 
     def __init__(self):
+        self.equipped_weapon = None
         self.player_items = list()
         self.current_room = ""
         self.player_max_weight = 10
@@ -29,3 +33,19 @@ class Player:
             return True
         else:
             return False
+
+    def check_if_weapon_equipped(self):
+        if self.equipped_weapon is None:
+            return False
+        else:
+            return True;
+
+    def equip_weapon(self, item):
+        if not self.check_if_weapon_equipped():
+            if isinstance(item, Weapon):
+                self.equipped_weapon = item.item_name
+                return item.item_name + " is now equipped"
+            else:
+                return item.item_name + " is not a weapon"
+        else:
+            return "You already have a weapon equipped"

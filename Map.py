@@ -1,5 +1,7 @@
+from Enemy import Enemy
 from Room import Room
 from Item import Item
+from Weapon import Weapon
 
 
 class Map:
@@ -56,16 +58,25 @@ class Map:
         flashlight = Item("flashlight", "New flashlight", 2)
         soda = Item("soda", "Expired soda", 1)
         sock = Item("sock", "Smelly sock", 1)
-        sword = Item("sword", "Long sword", 5)
+
+        # Weapons
+        sword = Weapon("sword", "Long sword", 5, 10)
+        knife = Weapon("knife", "small knife", 1, 5)
+
+        #Enemies
+        goblin = Enemy("goblin", 100, knife)
 
         # Room 1 items
         self.room1.room_items.append("shovel")
         self.room1.room_items.append("flashlight")
         self.room1.room_items.append("soda")
+        self.room1.room_items.append("sword")
+
+        # Room 1 enemies 
+        self.room1.room_enemies.append("goblin")
 
         # Room 7 items
         self.room7.room_items.append("sock")
-        self.room7.room_items.append("sword")
 
         # All items
         self.all_items = [shovel, flashlight, soda, sock, sword]
