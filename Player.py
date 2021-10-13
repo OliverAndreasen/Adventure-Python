@@ -1,6 +1,5 @@
 from Food import Food
 from Weapon import Weapon
-from Enemy import Enemy
 
 
 class Player:
@@ -9,9 +8,9 @@ class Player:
         self.equipped_weapon = None
         self.player_items = list()
         self.current_room = ""
-        self.player_max_weight = 10
+        self.player_max_weight = 100
         self.player_weight = 0
-        self.player_current_hp = 90
+        self.player_current_hp = 100
         self.player_max_hp = 100
 
     def take(self, item_name):
@@ -42,17 +41,24 @@ class Player:
         if self.equipped_weapon is None:
             return False
         else:
-            return True;
+            return True
 
     def equip_weapon(self, item):
         if not self.check_if_weapon_equipped():
-            if isinstance(item, Weapon):
+            if issubclass(item.__class__, Weapon):
                 self.equipped_weapon = item.name
                 return item.name + " is now equipped"
             else:
                 return item.name + " is not a weapon"
         else:
             return "You already have a weapon equipped"
+
+    def unequip_weapon(self):
+        if self.equipped_weapon is None:
+            print("you dont have a weapon equipped")
+        else:
+            print("you uneqipped your weapon: " + self.equipped_weapon)
+            self.equipped_weapon = None
 
     def eat(self, item):
         if isinstance(item, Food):

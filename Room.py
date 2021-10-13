@@ -9,7 +9,6 @@ class Room:
         self.room_items = list()
         self.room_enemies = list()
 
-
     def set_room_north(self, room):
         self.room_north = room
 
@@ -31,12 +30,6 @@ class Room:
     def get_room_item(self, name):
         if name in self.room_items:
             return name
-        else:
-            return False
-
-    def get_room_enemey(self, enemy_name):
-        if enemy_name in self.room_enemies:
-            return enemy_name
         else:
             return False
 

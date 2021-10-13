@@ -1,3 +1,13 @@
+def welcome_text():
+    print("welcome to the game")
+    print("to move between rooms type go followed by a direction")
+    print("you can go 'north', 'east', 'south', 'west'")
+    print("you can take items by typing take 'item name'")
+    print("you can drop items by typing drop 'item name'")
+    print("you can look for items in the room by typing 'look'")
+    print("you can view your inventory by typing 'inv'")
+
+
 class Parser:
 
     def __init__(self):
@@ -49,12 +59,3 @@ class Parser:
             return self.current_room.room_south
         if direction == "west":
             return self.current_room.room_west
-
-    def welcome_text(self):
-        print("welcome to the game")
-        print("to move between rooms type go followed by a direction")
-        print("you can go 'north', 'east', 'south', 'west'")
-        print("you can take items by typing take 'item name'")
-        print("you can drop items by typing drop 'item name'")
-        print("you can look for items in the room by typing 'look'")
-        print("you can view your inventory by typing 'inv'")
