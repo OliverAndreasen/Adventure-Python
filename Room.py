@@ -32,5 +32,3 @@ class Room:
             return name
         else:
             return False
-
-

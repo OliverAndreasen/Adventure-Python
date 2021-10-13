@@ -94,9 +94,3 @@ class Player:
                 return "you are already full health"
         else:
             return "you cant eat that"
-
-    def attack(self):
-        if self.check_if_weapon_equipped():
-            return True
-        else:
-            return False
